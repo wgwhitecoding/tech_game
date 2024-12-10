@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Coding Game</title>
+  <title>CodeQuest Coding Game</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.css">
+  <!-- CodeMirror Dracula Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/theme/dracula.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
-    <!-- Game Header -->
+    <!-- Header Section -->
     <header>
-      <h1>Mini Coding Game</h1>
+      <h1>CodeQuest Coding Game</h1>
+      <div class="header-options">
+        <span id="timer">⏳ 00:00</span>
+        <button id="toggle-mode">🌙 Dark Mode</button>
+      </div>
       <p id="level-title">Level 1 of 10</p>
     </header>
 
@@ -22,33 +32,50 @@
 
     <!-- Code Editor Area -->
     <div class="code-area">
-      <textarea id="code-editor" spellcheck="false"></textarea>
+      <textarea id="code-editor"></textarea>
     </div>
 
-    <!-- Buttons -->
+    <!-- Action Buttons -->
     <div class="buttons">
       <button class="run-btn" id="run-code">Run Code</button>
       <button class="hint-btn" id="get-hint">Hint</button>
       <button class="next-btn hidden" id="next-puzzle">Next Coding Puzzle</button>
     </div>
 
-    <!-- Feedback Area -->
+    <!-- Feedback Section -->
     <div class="feedback" id="feedback"></div>
 
-    <!-- Results Area -->
+    <!-- Results Section -->
     <div id="results">
       <h3>Results:</h3>
       <p id="result-output">Run the code to see the results!</p>
     </div>
 
-    <!-- Progress and Rank -->
+    <!-- Achievements Section -->
+    <div id="achievements">
+      <h3>Achievements</h3>
+      <ul id="achievement-list"></ul>
+    </div>
+
+    <!-- Progress Section -->
     <div id="progress">
       Current Rank: <span id="rank">Code Novice</span>
     </div>
   </div>
 
+  <!-- CodeMirror JS -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/mode/javascript/javascript.min.js"></script>
+  <!-- Custom JavaScript -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 

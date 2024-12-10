@@ -1,16 +1,15 @@
-// === Mini Coding Game Script ===
-// This script powers the logic for the Mini Coding Game, including levels, feedback, and progression.
-
 // === DOM Element Selection ===
 const runCodeButton = document.getElementById("run-code");
 const hintButton = document.getElementById("get-hint");
 const nextButton = document.getElementById("next-puzzle");
 const feedback = document.getElementById("feedback");
-const codeEditor = document.getElementById("code-editor");
 const levelTitle = document.getElementById("level-title");
 const celebration = document.getElementById("celebration");
 const rank = document.getElementById("rank");
 const resultOutput = document.getElementById("result-output");
+const timer = document.getElementById("timer");
+const toggleMode = document.getElementById("toggle-mode");
+const achievementList = document.getElementById("achievement-list");
 
 // === Game Levels and Ranks ===
 const levels = [
@@ -34,7 +33,7 @@ const levels = [
   },
   {
     description: "Correct the code to reverse a string.",
-    code: `function reverseString(str) {\n  return str.split("").reverse().join();\n}\nconsole.log(reverseString("hello"));`,
+    code: `function reverseString(str) {\n  return str.split("").reverse().join("");\n}\nconsole.log(reverseString("hello"));`,
     solution: "olleh",
     hint: "Check the join() method."
   },
@@ -58,19 +57,19 @@ const levels = [
   },
   {
     description: "Correct the logic to check if a string is a palindrome.",
-    code: `function isPalindrome(str) {\n  return str === str.split("").reverse().join;\n}\nconsole.log(isPalindrome("radar"));`,
+    code: `function isPalindrome(str) {\n  return str === str.split("").reverse().join("");\n}\nconsole.log(isPalindrome("radar"));`,
     solution: true,
     hint: "Ensure join() works correctly."
   },
   {
     description: "Fix the function to find the sum of an array using reduce().",
-    code: `function arraySum(arr) {\n  return arr.reduce((acc, num) => acc + num, 0;\n}\nconsole.log(arraySum([1, 2, 3, 4]));`,
+    code: `function arraySum(arr) {\n  return arr.reduce((acc, num) => acc + num, 0);\n}\nconsole.log(arraySum([1, 2, 3, 4]));`,
     solution: 10,
     hint: "Check parentheses in reduce()."
   },
   {
     description: "Fix the code to merge and sort two arrays.",
-    code: `let arr1 = [3, 1, 4];\nlet arr2 = [2, 5];\nlet merged = arr1.concat(arr2).sort;\nconsole.log(merged);`,
+    code: `let arr1 = [3, 1, 4];\nlet arr2 = [2, 5];\nlet merged = arr1.concat(arr2).sort((a, b) => a - b);\nconsole.log(merged);`,
     solution: [1, 2, 3, 4, 5],
     hint: "Check the usage of the sort() method."
   }
@@ -90,25 +89,47 @@ const ranks = [
 ];
 
 let currentLevel = 0;
+let timerInterval;
 
-// === Game Functions ===
+// === Initialize CodeMirror Editor ===
+const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+  lineNumbers: true,
+  mode: "javascript",
+  theme: "dracula",
+  indentUnit: 2,
+  tabSize: 2,
+  lineWrapping: true,
+});
 
-// Load a new level
+// === Utility Functions ===
+
+// Start the timer
+function startTimer() {
+  let seconds = 0;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    seconds++;
+    timer.textContent = `⏳ ${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+  }, 1000);
+}
+
+// Load a level
 function loadLevel(levelIndex) {
   const level = levels[levelIndex];
   levelTitle.textContent = `Level ${levelIndex + 1} of ${levels.length}`;
   document.getElementById("challenge-description").textContent = level.description;
-  codeEditor.value = level.code;
+  editor.setValue(level.code);
   feedback.textContent = "";
   resultOutput.textContent = "Run the code to see the results!";
   celebration.classList.add("hidden");
   nextButton.style.display = "none";
+  startTimer();
 }
 
-// Check the user's code
+// Run the user's code
 runCodeButton.addEventListener("click", () => {
+  const userCode = editor.getValue();
   try {
-    const userCode = codeEditor.value;
     const userFunction = new Function(userCode);
 
     let output;
@@ -118,27 +139,29 @@ runCodeButton.addEventListener("click", () => {
     const isArrayEqual = Array.isArray(output) && JSON.stringify(output) === JSON.stringify(levels[currentLevel].solution);
     if (output === levels[currentLevel].solution || isArrayEqual) {
       feedback.textContent = "✅ Correct! Well done!";
-      feedback.style.color = "lime";
+      feedback.className = "feedback success";
       celebration.classList.remove("hidden");
-      nextButton.style.display = "inline-block"; // Show "Next" button on correct answer
+      nextButton.style.display = "inline-block";
       rank.textContent = ranks[currentLevel];
       resultOutput.textContent = `Output: ${JSON.stringify(output)}`;
     } else {
-      feedback.textContent = "❌ Incorrect output. Try again!";
-      feedback.style.color = "red";
+      feedback.textContent = "❌ Incorrect. Try again.";
+      feedback.className = "feedback error";
       resultOutput.textContent = "😞 Incorrect!";
+      nextButton.style.display = "none";
     }
   } catch (error) {
     feedback.textContent = `❌ Error: ${error.message}`;
-    feedback.style.color = "red";
+    feedback.className = "feedback error";
     resultOutput.textContent = "😞 Incorrect!";
+    nextButton.style.display = "none";
   }
 });
 
 // Show a hint
 hintButton.addEventListener("click", () => {
   feedback.textContent = `💡 Hint: ${levels[currentLevel].hint}`;
-  feedback.style.color = "yellow";
+  feedback.className = "feedback hint";
 });
 
 // Proceed to the next level
@@ -152,8 +175,21 @@ nextButton.addEventListener("click", () => {
   }
 });
 
+// Toggle Light/Dark Mode
+toggleMode.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  const isLightMode = document.body.classList.contains("light-mode");
+
+  // Update the editor theme dynamically
+  editor.setOption("theme", isLightMode ? "default" : "dracula");
+  toggleMode.textContent = isLightMode ? "🌙 Dark Mode" : "☀️ Light Mode";
+});
+
 // === Game Initialization ===
 loadLevel(currentLevel);
+
+
+
 
 
 
