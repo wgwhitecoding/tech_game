@@ -54,18 +54,7 @@ Alternatively, download the project and run it locally. See the [Installation & 
 
 ## File Structure
 
-tech_game/
-├── index.html              # Main HTML file
-├── assets/
-│   ├── css/
-│   │   └── styles.css      # Main CSS file
-│   ├── js/
-│   │   └── script.js       # Main JavaScript file
-│   ├── codemirror/         # CodeMirror Library
-│       ├── codemirror.css  # CodeMirror CSS
-│       ├── codemirror.js   # CodeMirror JavaScript
-│       └── mode/javascript/javascript.js  # JavaScript syntax mode for CodeMirror
-└── README.md               # This README file
+![](assets/images/file.png)
 
 
 ---
