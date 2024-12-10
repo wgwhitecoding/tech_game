@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Coding Game</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Game Header -->
+    <header>
+      <h1>Mini Coding Game</h1>
+      <p id="level-title">Level 1 of 10</p>
+    </header>
+
+    <!-- Celebration Message -->
+    <div id="celebration" class="hidden">🎉 Great Job! 🎉</div>
+
+    <!-- Challenge Description -->
+    <p id="challenge-description">Fix the code below to pass the challenge!</p>
+
+    <!-- Code Editor Area -->
+    <div class="code-area">
+      <textarea id="code-editor" spellcheck="false"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button class="run-btn" id="run-code">Run Code</button>
+      <button class="hint-btn" id="get-hint">Hint</button>
+      <button class="next-btn hidden" id="next-puzzle">Next Coding Puzzle</button>
+    </div>
+
+    <!-- Feedback Area -->
+    <div class="feedback" id="feedback"></div>
+
+    <!-- Results Area -->
+    <div id="results">
+      <h3>Results:</h3>
+      <p id="result-output">Run the code to see the results!</p>
+    </div>
+
+    <!-- Progress and Rank -->
+    <div id="progress">
+      Current Rank: <span id="rank">Code Novice</span>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
