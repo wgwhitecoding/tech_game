@@ -13,66 +13,129 @@ const achievementList = document.getElementById("achievement-list");
 
 // === Game Levels and Ranks ===
 const levels = [
+  
   {
-    description: "Fix the loop condition to sum numbers.",
-    code: `let numbers = [1, 2, 3, 4, 5];\nlet sum = 0;\nfor (let i = 0; i <= numbers.length; i++) {\n  sum += numbers[i];\n}\nconsole.log(Sum);`,
-    solution: 15,
-    hint: "Check the loop condition and variable names."
-  },
-  {
-    description: "Correct the function to return the correct greeting.",
-    code: `function greet(name) {\n  return "Hello " + Name;\n}\nconsole.log(greet("Alice"));`,
-    solution: "Hello Alice",
-    hint: "Check capitalization of variables."
-  },
-  {
-    description: "Fix the logic to find the maximum number in the array.",
-    code: `let numbers = [3, 7, 2, 8, 5];\nlet max = 0;\nnumbers.forEach((num) => {\n  if (num > max) {\n    max = num;\n  }\n});\nconsole.log(Max);`,
-    solution: 8,
-    hint: "Check the initial value of max and capitalization."
-  },
-  {
-    description: "Correct the code to reverse a string.",
-    code: `function reverseString(str) {\n  return str.split("").reverse().join("");\n}\nconsole.log(reverseString("hello"));`,
+    description: "Fix the function to reverse a string.",
+    code: `function reverseString(str) {
+  return str.split("").reverse;
+}
+console.log(reverseString("hello"));`,
     solution: "olleh",
-    hint: "Check the join() method."
+    hint: "Make sure to properly call join() after reverse()."
   },
   {
-    description: "Fix the logic to count the vowels in a string.",
-    code: `function countVowels(str) {\n  const vowels = "aeiou";\n  let count = 0;\n  for (let char of str) {\n    if (vowels.includes(char)) {\n      count += 1;\n    }\n  }\n  return count;\n}\nconsole.log(countVowels("hello"));`,
-    solution: 2,
-    hint: "Ensure includes() works properly for each character."
-  },
-  {
-    description: "Correct the code to filter even numbers from the array.",
-    code: `let numbers = [1, 2, 3, 4, 5, 6];\nlet evens = numbers.filter((n) => n % 2 === 0);\nconsole.log(Evens);`,
-    solution: [2, 4, 6],
-    hint: "Check the variable capitalization."
-  },
-  {
-    description: "Fix the function to calculate the factorial of a number.",
-    code: `function factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(5));`,
-    solution: 120,
-    hint: "Check the base case for recursion."
-  },
-  {
-    description: "Correct the logic to check if a string is a palindrome.",
-    code: `function isPalindrome(str) {\n  return str === str.split("").reverse().join("");\n}\nconsole.log(isPalindrome("radar"));`,
-    solution: true,
-    hint: "Ensure join() works correctly."
-  },
-  {
-    description: "Fix the function to find the sum of an array using reduce().",
-    code: `function arraySum(arr) {\n  return arr.reduce((acc, num) => acc + num, 0);\n}\nconsole.log(arraySum([1, 2, 3, 4]));`,
-    solution: 10,
-    hint: "Check parentheses in reduce()."
-  },
-  {
-    description: "Fix the code to merge and sort two arrays.",
-    code: `let arr1 = [3, 1, 4];\nlet arr2 = [2, 5];\nlet merged = arr1.concat(arr2).sort((a, b) => a - b);\nconsole.log(merged);`,
-    solution: [1, 2, 3, 4, 5],
-    hint: "Check the usage of the sort() method."
+    description: "Fix the function to find the sum of an array.",
+    code: `function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i <= arr.length; i++) {
+    sum += arr[i];
   }
+  return sum;
+}
+console.log(sumArray([1, 2, 3, 4, 5]));`,
+    solution: 15,
+    hint: "Check the loop condition (i < arr.length)."
+  },
+  {
+    description: "Fix the function to count unique numbers in an array.",
+    code: `function countUniques(arr) {
+    const uniques = arr;
+    return uniques.size;
+  }
+  console.log(countUniques([1, 2, 2, 3, 4, 4, 5]));`,
+    solution: 5,
+    hint: "Replace 'uniques = arr' with 'uniques = new Set(arr)'."
+  },
+  {
+    description: "Fix the function to validate email addresses.",
+    code: `function isValidEmail(email) {
+  return email.includes("@") && email.includes(".");
+}
+console.log(isValidEmail("test@example.com"));
+console.log(isValidEmail("testexamplecom")); `,
+    solution: true,
+    hint: "Ensure '@' appears before '.'."
+  },
+  {
+    description: "Fix the logic to find the maximum number.",
+    code: `function findMax(numbers) {
+    let max = null;
+    numbers.forEach((num) => {
+      if (num >= max) {
+        Max = num;
+      }
+    });
+    return max;
+  }
+  console.log(findMax([3, 7, 2, 8, 5]));`,
+    solution: 8,
+    hint: "Check the initialization of max, the comparison operator, and the capitalization of variables."
+  },
+  
+  {
+    description: "Fix the function to sort words by length in descending order.",
+    code: `function sortWords(words) {
+    words.sort((a, b) => b.length > a.length);
+    words = words.reverse();
+    return words.join();
+  }
+  console.log(sortWords(["apple", "banana", "pear", "fig"]));`,
+    solution: ["banana", "apple", "pear", "fig"],
+    hint: "Fix the comparison logic in sort() and ensure the return value is a properly sorted array."
+  },
+  {
+    description: "Fix the function to merge and sort two arrays. Ensure the result removes duplicates, maintains sorting order, and handles edge cases.",
+    code: `function mergeSorted(arr1, arr2) {
+    return arr1.concat(arr2).sort();
+  }
+  console.log(mergeSorted([3, 1, 4], [2, 5]));
+  console.log(mergeSorted([3, 3, 4], [4, 4, 5]));
+  console.log(mergeSorted([], []));`,
+    solution: [1, 2, 3, 4, 5],
+    hint: "Check for duplicate elements and ensure the sort handles numbers correctly."
+  },
+  
+  {
+    description: "Fix the function to check if two strings are anagrams of each other.",
+    code: `function areAnagrams(str1, str2) {
+      let cleanStr1 = str1.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+      let cleanStr2 = str2.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+      return cleanStr1.split("").sort() === cleanStr2.split("").sort();
+    }
+    console.log(areAnagrams("listen", "silent")); // true
+    console.log(areAnagrams("hello", "world")); // false`,
+    solution: true,
+    hint: "Clean the strings by removing non-alphanumeric characters, convert to lowercase, and sort the characters before comparison."
+  },
+  
+  
+  
+  
+  {
+    description: "Fix the function to calculate the factorial of a number. Ensure it handles negative inputs and large numbers correctly.",
+    code: `function factorial(n) {
+    if (n === 0) return 1; // Doesn't handle negative inputs
+    return n * factorial(n - 1; // Missing closing parenthesis
+  }
+  console.log(factorial(5)); // Should return 120
+  console.log(factorial(-1)); // Should return "Invalid input"
+  console.log(factorial(21)); // Should handle large numbers without crashing`,
+    solution: 120,
+    hint: "Handle negative numbers, fix the syntax error, and prevent stack overflow for large numbers."
+  },
+  
+  {
+    description: "Fix the function to find the intersection of two arrays. Ensure it handles nested arrays, large inputs efficiently, and duplicate items.",
+    code: `function findIntersection(arr1, arr2) {
+    return arr1.filter((item) => arr2.includes(item));
+  }
+  console.log(findIntersection([1, 2, [3, 4]], [[3, 4], 5]));
+  console.log(findIntersection([1, 2, 2, 3], [2, 3, 3, 4]));
+  console.log(findIntersection(new Array(1e5).fill(1), new Array(1e5).fill(1)));`,
+    solution: [[3, 4], 2, 3],
+    hint: "Consider deep equality for nested arrays, eliminate duplicates, and optimize for large inputs."
+  }
+  
 ];
 
 const ranks = [
@@ -187,6 +250,7 @@ toggleMode.addEventListener("click", () => {
 
 // === Game Initialization ===
 loadLevel(currentLevel);
+
 
 
 
