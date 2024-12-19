@@ -3,19 +3,21 @@
 
 ![CodeQuest Coding Game](assets/images/game.png)
 
+**Repository:** [https://github.com/wgwhitecoding/tech_game](https://github.com/wgwhitecoding/tech_game)
 
+**Live Link** [CodeQuest CodingGame Live](https://wgwhitecoding.github.io/tech_game/)
 
 ## Table of Contents
 1. [Overview](#overview)
 2. [Features](#features)
-3. [Demo](#demo)
-4. [File Structure](#file-structure)
-5. [How It Works](#how-it-works)
-6. [Technology Used](#technology-used)
-7. [Installation & Setup](#installation--setup)
-8. [How to Play](#how-to-play)
-9. [Acknowledgments](#acknowledgments)
-10. [Author](#author)
+3. [File Structure](#file-structure)
+4. [How It Works](#how-it-works)
+5. [Technology Used](#technology-used)
+6. [Installation & Setup](#installation--setup)
+7. [How to Play](#how-to-play)
+8. [Acknowledgments](#acknowledgments)
+9. [Author](#author)
+10. [🤝 Connect with Me](#connect-with-me)
 
 ---
 
@@ -44,14 +46,6 @@ This project is ideal for showcasing your coding expertise and engaging users wi
 
 ---
 
-## Demo
-You can view the live project demo here:
-[Add live project URL if hosted online]
-
-Alternatively, download the project and run it locally. See the [Installation & Setup](#installation--setup) section for instructions.
-
----
-
 ## File Structure
 
 ![](assets/images/file.png)
@@ -75,14 +69,28 @@ Alternatively, download the project and run it locally. See the [Installation & 
 ---
 
 ## Technology Used
+
 ### Frontend Technologies
-- **HTML5**: For structuring the game layout.
-- **CSS3**: For styling, animations, and responsive design.
-- **JavaScript**: Core logic for game interactions, level progression, and feedback.
+
+- [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)  
+  **HTML5**: For structuring the game layout.
+
+- [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)  
+  **CSS3**: For styling, animations, and responsive design.
+
+- [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+  **JavaScript**: Core logic for game interactions, level progression, and feedback.
+
+---
 
 ### Libraries and Tools
-- **CodeMirror**: Provides an integrated coding editor with syntax highlighting and line numbers.
-- **Google Fonts**: "Roboto" font for a clean and professional design.
+
+- [![CodeMirror](https://img.shields.io/badge/CodeMirror-008080?style=for-the-badge&logo=codemirror&logoColor=white)](https://codemirror.net/)  
+  **CodeMirror**: Provides an integrated coding editor with syntax highlighting and line numbers.
+
+- [![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://fonts.google.com/)  
+  **Google Fonts**: "Roboto" font for a clean and professional design.
+
 
 ---
 
@@ -132,6 +140,17 @@ Special thanks to all the open-source libraries and tools that made this project
 If you have any questions, feel free to reach out via GitHub or open an issue in the repository.
 
 ---
+
+## 🤝 Connect with Me <a id="connect-with-me"></a>
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wgwhitecoding)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/walidwillwhite/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:walidwillwhite@gmail.com)
+
+
+---
+
+⭐️ Thanks for visiting! Feel free to explore my repositories and star any that interest you. 😊
 
 
 
